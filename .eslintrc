@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "extends": [
+    "oclif",
+    "oclif-typescript"
+  ],
+  "rules": {
+    "object-curly-spacing": "off",
+    "semi": [2, "always"],
+    "no-async-promise-executor": "off",
+    "unicorn/filename-case": "off"
+  }
+}

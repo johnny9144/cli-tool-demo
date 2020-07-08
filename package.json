@@ -1,0 +1,66 @@
+{
+  "name": "@marvin/portal-locales",
+  "description": "portal required locale resource source file",
+  "version": "0.2.0",
+  "author": "Johnny Huang",
+  "bin": {
+    "portal-locales": "./bin/run"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/listr": "^0.14.2",
+    "@types/lodash": "^4.14.155",
+    "@types/papaparse": "^5.0.3",
+    "chalk": "^4.0.0",
+    "googleapis": "^39.2.0",
+    "husky": "^4.2.5",
+    "listr": "^0.14.3",
+    "lodash": "^4.17.15",
+    "oclif": "^1.16.1",
+    "papaparse": "^5.1.1",
+    "promise": "^8.0.3",
+    "tslib": "^1.13.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.2",
+    "@types/gapi": "0.0.39",
+    "@types/node": "^14.0.13",
+    "eslint": "^5.16.0",
+    "eslint-config-oclif": "^3.1.0",
+    "eslint-config-oclif-typescript": "^0.1.0",
+    "globby": "^10.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "portal-locales",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md",
+    "lint": "eslint \"src/**\""
+  },
+  "types": "lib/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
